@@ -32,7 +32,7 @@ function Currency() {
             currencies: toCurrency
         }).then(response => {
             const conVal = response.data[toCurrency];
-            setValue(input * conVal);
+            setValue(input * conVal.toFixed(3));
             console.log(conVal)
         });
         e.preventDefault();
@@ -41,7 +41,7 @@ function Currency() {
 
     return (
         <>
-        <div className='flex justify-center items-center h-screen'>
+        <div className='flex justify-center items-center mt-5'>
             <div className='container mt-5 w-[50%] rounded-md shadow-2xl'>
                 <h1 className='max-w-sm mx-auto font-bold mt-5'>Currency Converter</h1>
                 <div className='flex md:flex-row flex-col mt-5'>
@@ -71,12 +71,12 @@ function Currency() {
                     </form>
                 </div>
                 <div className='flex flex-row'>
-                    <input type="number" placeholder='Amount' className='border-2 rounded border-black w-full p-2 mx-16 my-5' value={input} onChange={(e)=>{setInput(e.target.value)}}/>
+                    <input type="number" placeholder='Amount' className='border-2 rounded border-grey w-full p-2 mx-16 my-5' value={input} onChange={(e)=>{setInput(e.target.value)}}/>
                 </div>
                 <div clasa="p-2 w-full">
                     <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" onClick={convert}>Convert</button>
                 </div>
-               { value && <p className='text-center font-solid my-5'>{input} {fromCurrency} = {value} {toCurrency}</p>}
+               { value && <p className='text-center font-bold my-5 text-green-400'>{input} {fromCurrency} = {value} {toCurrency}</p>}
             </div>
         </div>
     </>

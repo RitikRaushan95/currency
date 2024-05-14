@@ -44,8 +44,8 @@ function Currency() {
         <div className='flex justify-center items-center mt-5'>
             <div className='container mt-5 w-[50%] rounded-md shadow-2xl'>
                 <h1 className='max-w-sm mx-auto font-bold mt-5'>Currency Converter</h1>
-                <div className='flex md:flex-row flex-col mt-5'>
 
+                <div className='flex md:flex-row flex-col mt-5'>
                     <form className="max-w-sm mx-auto">
                         <label htmlFor="fromCurrency" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">From:</label>
                         <select id="fromCurrency" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={fromCurrency} onChange={handleFromChange}>
@@ -70,12 +70,15 @@ function Currency() {
                         </select>
                     </form>
                 </div>
+
                 <div className='flex flex-row'>
                     <input type="number" placeholder='Amount' className='border-2 rounded border-grey w-full p-2 mx-16 my-5' value={input} onChange={(e)=>{setInput(e.target.value)}}/>
                 </div>
+
                 <div clasa="p-2 w-full">
-                    <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" onClick={convert}>Convert</button>
+                    <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg m-5" onClick={convert}>Convert</button>
                 </div>
+                
                { value && <p className='text-center font-bold my-5 text-green-400'>{input} {fromCurrency} = {value} {toCurrency}</p>}
             </div>
         </div>
